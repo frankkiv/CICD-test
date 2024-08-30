@@ -18,3 +18,15 @@ jobs:
     steps:
       - name: Print input parameter
         run: echo "run gen_PBM.py --release ${{ github.event.inputs.version }} --build_number ${{ github.event.inputs.build_number }}"
+
+      - name: Generate output file
+        run: |
+          echo "Generating output file..."
+          echo "Version: ${{ github.event.inputs.version }}" > output.txt
+          echo "Build Number: ${{ github.event.inputs.build_number }}" >> output.txt
+
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-output-file
+          path: output.txt
