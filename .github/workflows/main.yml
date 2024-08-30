@@ -6,6 +6,7 @@ on:
       my-param:
         description: 'Enter a value'
         required: true
+        default: 'default-value'  # 可以選擇提供一個默認值
 
 jobs:
   my-job:
@@ -13,4 +14,3 @@ jobs:
     steps:
       - name: Print input parameter
         run: echo "Input value: ${{ github.event.inputs.my-param }}"
-
