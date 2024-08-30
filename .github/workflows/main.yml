@@ -3,8 +3,12 @@ name: Dynamic Workflow
 on:
   workflow_dispatch:
     inputs:
-      my-param:
-        description: 'Enter a value'
+      version:
+        description: 'version(e.g. 8.0.300)'
+        required: true
+        default: 'default-value'
+      build_number:
+        description: 'build_number(e.g. 28562648)'
         required: true
         default: 'default-value'
 
@@ -13,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print input parameter
-        run: echo "Input value ${{ inputs.my-param }}"
+        run: echo "run gen_PBM.py --release ${{ input.version }} --build_number ${{ input.build_number }}"
