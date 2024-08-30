@@ -17,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print input parameter
-        run: echo "run gen_PBM.py --release ${{ input.version }} --build_number ${{ input.build_number }}"
+        run: echo "run gen_PBM.py --release ${{ github.event.inputs.version }} --build_number ${{ github.event.inputs.build_number }}"
